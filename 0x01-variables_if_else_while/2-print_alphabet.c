@@ -14,9 +14,9 @@ for (i = 0; i < 26; i++)
 m = m + 1;
 putchar(m);
 if (i == 25)
-  {
-    putchar('\n');
-  }
+{
+putchar('\n');
 }
-  return (0);
+}
+return (0);
 }
