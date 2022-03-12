@@ -14,6 +14,10 @@ int main(void)
     {
       m = m + 1;
       putchar(m);
+      if (i == 25)
+	{
+	  putchar('\n');
+	}
     }
   return (0);
 }
