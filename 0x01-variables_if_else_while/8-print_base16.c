@@ -12,7 +12,7 @@ for (p = 48; p < 58; p++)
 {
 putchar(p);
 }
-for (n = 'a'; n <= 'z'; n++)
+for (n = 'a'; n <= 'f'; n++)
 {
 putchar(n);
 }
