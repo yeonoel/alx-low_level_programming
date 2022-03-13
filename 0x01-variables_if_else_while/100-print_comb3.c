@@ -15,19 +15,19 @@ for (n = 48; n < 57; n++)
 {
 while  (p < 58)
 {
-	 putchar(n);
-	 putchar(p);
-	 if (n != 56 || p != 57)
-	   {
-	     putchar(x);
-	     putchar(' ');
-	   }
-	 p = p + 1;
+putchar(n);
+putchar(p);
+if (n != 56 || p != 57)
+{
+putchar(x);
+putchar(' ');
 }
- y = y + 1;
- p = 49;
- p = p + y;
+p = p + 1;
 }
- putchar('\n');
-	return (0);
+y = y + 1;
+p = 49;
+p = p + y;
+}
+putchar('\n');
+return (0);
 }
