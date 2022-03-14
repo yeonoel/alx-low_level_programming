@@ -26,7 +26,7 @@ putchar(i);
 putchar(t);
 putchar(n);
 if (i != 55 || t != 56 || n != 57)
-c{
+{
 putchar(v);
 putchar(' ');
 }
