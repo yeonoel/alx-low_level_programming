@@ -14,7 +14,7 @@ putchar(116);
 putchar(99);
 putchar(104);
 putchar(97);
-putcahr(114);
+putchar(114);
 putchar('\n');
 return (0);
 }
