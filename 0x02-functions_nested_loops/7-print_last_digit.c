@@ -13,6 +13,10 @@ if (z < 0)
 z = -z;
 }
 s = z % 10;
+if (s < 0)
+{
+s = -s;
+}
 _putchar(s + '0');
 return (s);
 }
