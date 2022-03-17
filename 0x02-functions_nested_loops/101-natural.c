@@ -24,6 +24,6 @@ x = x + i;
 }
 }
 s = t + x;
-printf("%lu\n", s);
+printf("%d\n", s);
 return (0);
 }
