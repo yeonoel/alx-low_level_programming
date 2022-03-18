@@ -29,5 +29,6 @@ _putchar('\n');
 t = ++x;
 n--;
 }
+_putchar('\n');
 }
 }
