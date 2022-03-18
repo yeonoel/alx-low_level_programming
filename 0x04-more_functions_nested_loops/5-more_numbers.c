@@ -19,7 +19,7 @@ _putchar(x + '0');
 else
 {
 t = x;
-while (t => 10)
+while (t >= 10)
 {
 t /= 10;
 }
@@ -28,7 +28,8 @@ _putchar((x % 10) + '0');
 }
 x++;
 }
+_putchar('\n');
 n++;
 }
- _putchar('\n');
+_putchar('\n');
 }
