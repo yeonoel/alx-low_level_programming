@@ -12,24 +12,19 @@ while (n < 10)
 x = 0;
 while (x <= 14)
 {
-if (x < 10)
-{
-_putchar(x + '0');
-}
-else
-{
 t = x;
+if (t >= 10)
+{
 while (t >= 10)
 {
 t /= 10;
 }
 _putchar(t + '0');
-_putchar((x % 10) + '0');
 }
+_putchar((x % 10) + '0');
 x++;
 }
 _putchar('\n');
 n++;
 }
-_putchar('\n');
 }
