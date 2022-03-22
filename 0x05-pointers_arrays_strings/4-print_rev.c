@@ -12,7 +12,7 @@ while (*s != '\0')
 {
 s++;
 }
-while (s != t)
+while (s >= t)
 {
 _putchar(*s);
 s--;
