@@ -14,7 +14,8 @@ int x, i, result;
 result = 1;
 if (argc < 3)
 {
-return (0);
+  printf("Error\n");
+  return (1);
 }
 else
 {
