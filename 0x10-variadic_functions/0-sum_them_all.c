@@ -1,25 +1,30 @@
-#ifndef _HEADER_
-#define _HEADER_
-#include <stdarg.h>
-
-int _putchar(char c);
-int sum_them_all(const unsigned int n, ...);
-void print_numbers(const char *separator, const unsigned int n, ...);
-void print_strings(const char *separator, const unsigned int n, ...);
-void print_all(const char * const format, ...);
-void print_a_char(char *separator, va_list args);
-void print_a_integer(char *separator, va_list args);
-void print_a_float(char *separator, va_list args);
-void print_a_char_ptr(char *separator, va_list args);
+#include "variadic_functions.h"
 
 /**
- * struct format_types - Struct format_types
- * @identifier: The conversion specifier
- * @f: The function pointer
- */
-typedef struct format_types
+  * sum_them_all - ...
+  * @n: ...
+  *
+  * Return: ...
+  */
+int sum_them_all(const unsigned int n, ...)
 {
-	char *identifier;
-	void (*f)(char *separator, va_list args);
-} f_dt;
-#endif
+	va_list args;
+	unsigned int i = 0;
+	int sum = 0;
+
+	if (n != 0)
+	{
+		va_start(args, n);
+
+		while (i < n)
+		{
+			sum += va_arg(args, int);
+			i++;
+		}
+
+		va_end(args);
+		return (sum);
+	}
+
+	return (0);
+}
