@@ -25,8 +25,8 @@ tempo = (*head)->next;
 s = (*head)->n;
 free(*head);
 *head = tempo;
-return (s);
 }
+return (s);
 }
 }
 return (0);
