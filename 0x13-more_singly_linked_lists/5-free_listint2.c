@@ -9,7 +9,7 @@
 void free_listint2(listint_t **head)
 {
 listint_t *tempo;
-if (*head == NULL)
+if (head == NULL)
 {
 return;
 }
@@ -17,9 +17,9 @@ else
 {
 while (*head)
 {
-tempo = (*head)->next;
-free(*head);
-*head = tempo;
+tempo = *head;
+*head = (*head)->next;
+free(tempo);
 }
 *head = NULL;
 }
