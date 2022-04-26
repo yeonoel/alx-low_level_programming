@@ -9,25 +9,18 @@
 int pop_listint(listint_t **head)
 {
 unsigned int s;
-if (head != NULL)
-{
-if (*head == NULL)
+if (head == NULL || (*head) == NULL)
 {
 return (0);
 }
 else
 {
-listint_t *tempo = malloc(sizeof(listint_t));
+listint_t *tempo;
 s = 0;
-if (tempo != NULL)
-{
 tempo = (*head)->next;
 s = (*head)->n;
 free(*head);
 *head = tempo;
-}
 return (s);
 }
-}
-return (0);
 }
