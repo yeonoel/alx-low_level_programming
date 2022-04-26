@@ -21,6 +21,6 @@ tempo = *head;
 (*head) = (*head)->next;
 free(tempo);
 }
-free(*head);
+*head = NULL;
 }
 }
