@@ -17,16 +17,26 @@ if (!head && !new)
 {
 return (NULL);
 }
-while (tempo && i < idx)
+new->n = n;
+new->next = NULL;
+if (idx == 0)
 {
-tempo = tempo->next;
-i++;
+new->next = *head;
+*head = new;
+return (new);
 }
-if (tempo != NULL)
+for (i = 0; tempo && i < idx; i++)
+{
+if (i == idx - 1)
 {
 new->next = tempo->next;
 tempo->next = new;
-new->n = n;
-}
 return (new);
+}
+else
+{
+tempo = tempo->next;
+}
+}
+return (NULL);
 }
