@@ -15,7 +15,7 @@ if (argc != 3)
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
-ffd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+ffd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 if (ffd == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -47,5 +47,5 @@ if (close(ffd) == -1)
 dprintf(STDERR_FILENO, "Error: Can't close fd %d", ffd);
 exit(100);
 }
-return (ffd);
+return (0);
 }
