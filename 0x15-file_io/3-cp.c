@@ -6,7 +6,7 @@
  * @argv: pointer to the argument list
  * Return: number of charactere copied
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 
 if (argc != 3)
@@ -27,7 +27,7 @@ exit(0);
  */
 void  copy_file(const char *src, const char *dest)
 {
-int ffd, fd;
+int ffd, n, fd;
 char buf[1024];
 
 fd = open(src, O_RDONLY);
@@ -36,17 +36,20 @@ if (!src || fd == -1)
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 exit(98);
 }
-if (read(fd, buf, 1024) == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
-exit(98);
-}
 
 ffd = open(dest, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-if (write(ffd, buf, 1024) == -1 || ffd == -1)
+while ((n = read(fd, buf, 1024)) > 0)
+{
+if (write(ffd, buf, n) != n || ffd == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 exit(99);
+}
+}
+if (n == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
+exit(98);
 }
 if (close(fd) == -1)
 {
