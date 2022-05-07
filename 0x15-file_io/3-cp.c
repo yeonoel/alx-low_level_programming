@@ -8,33 +8,44 @@
  */
 int main(int argc, char *argv[])
 {
-int ffd, fd;
-char *buf = malloc(sizeof(char *) * 1024);
+
 if (argc != 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
-ffd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-if (ffd == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-exit(99);
+copy_file(argv[1], argv[2]);
+
+exit(0);
 }
-fd = open(argv[1], O_RDONLY);
-if (fd == -1)
+
+
+/**
+ * copy_file - copy content file in other
+ * @src: the the source to copy
+ * @dest: the file who receive the content of the src file
+ */
+void  copy_file(const char *src, const char *dest)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+int ffd, fd;
+char buf[1024];
+
+fd = open(src, O_RDONLY);
+if (!src || fd == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 exit(98);
 }
 if (read(fd, buf, 1024) == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 exit(98);
 }
-if (write(ffd, buf, 1024) == -1)
+
+ffd = open(dest, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+if (write(ffd, buf, 1024) == -1 || ffd == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 exit(99);
 }
 if (close(fd) == -1)
@@ -47,5 +58,4 @@ if (close(ffd) == -1)
 dprintf(STDERR_FILENO, "Error: Can't close fd %d", ffd);
 exit(100);
 }
-return (0);
 }
