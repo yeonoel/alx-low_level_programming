@@ -7,16 +7,17 @@
  */
 size_t dlistint_len(const dlistint_t *h)
 {
-const dlistint_t *tempo = h;
-size_t x = 0;
-if (tempo == NULL)
-{
-	return (0);
-}
-while (tempo)
-{
-x += 1;
-tempo = tempo->next;
-}
-return (x);
+	const dlistint_t *tempo = h;
+	size_t x = 0;
+
+	if (tempo == NULL)
+	{
+		return (0);
+	}
+	while (tempo != NULL)
+	{
+		x += 1;
+		tempo = tempo->next;
+	}
+	return (x);
 }
