@@ -9,14 +9,11 @@ size_t dlistint_len(const dlistint_t *h)
 {
 const dlistint_t *tempo = h;
 size_t x = 0;
-if (tempo)
-{
+
 	while (tempo)
 	{
 		tempo = tempo->next;
 		x += 1;
 	}
-
-}
 return (x);
 }
