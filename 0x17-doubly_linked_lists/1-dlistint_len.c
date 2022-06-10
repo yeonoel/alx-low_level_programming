@@ -13,8 +13,8 @@ if (tempo)
 {
 	while (tempo)
 	{
-		x += 1;
 		tempo = tempo->next;
+		x += 1;
 	}
 
 }
