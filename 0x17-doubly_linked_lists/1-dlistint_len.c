@@ -1,23 +1,22 @@
 #include "lists.h"
-
 /**
- *dlistint_len - print all the elements
- *@h: The head oh the list
- *Return: the number of numbers
+ *dlistint_len - Finds the number of elements in a linked list.
+ *@h:Pointer that points to the head of the linked list.
+ *Return:Number of elements n a linked list.
  */
 size_t dlistint_len(const dlistint_t *h)
 {
-	const dlistint_t *tempo = h;
-	size_t x = 0;
+	const dlistint_t *temp = h;
+	size_t i = 0;
 
-	if (tempo == NULL)
+	if (temp == NULL)
 	{
 		return (0);
 	}
-	while (tempo != NULL)
+	while (temp != NULL)
 	{
-		x += 1;
-		tempo = tempo->next;
+		temp = temp->next;
+		i++;
 	}
-	return (x);
+	return (i);
 }
