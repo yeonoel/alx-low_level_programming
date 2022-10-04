@@ -21,7 +21,8 @@ int binary_search(int *array, size_t size, int value)
 	{
 		mid = floor((L + R) / 2);
 		printf("Searching in array: ");
-		for (i = L; i < (R + 1); i++)
+		size = R + 1;
+		for (i = L; i < size; i++)
 		{
 			printf("%d", array[i]);
 			if (i < size - 1)
